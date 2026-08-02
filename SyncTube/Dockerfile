@@ -2,11 +2,8 @@ FROM eclipse-temurin:17-jdk
 
 WORKDIR /app
 
-COPY . .
-
-RUN chmod +x mvnw
-RUN ./mvnw clean package -DskipTests
+COPY target/SyncTube-0.0.1-SNAPSHOT.jar app.jar
 
 EXPOSE 8089
 
-ENTRYPOINT ["java","-jar","target/SyncTube-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar","app.jar"]
