@@ -4,6 +4,9 @@ WORKDIR /app
 
 COPY . .
 
+RUN pwd
+RUN ls -la
+
 RUN chmod +x mvnw
 RUN ./mvnw clean package -DskipTests
 
