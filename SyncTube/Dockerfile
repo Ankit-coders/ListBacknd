@@ -4,11 +4,9 @@ WORKDIR /app
 
 COPY . .
 
-RUN pwd
-RUN ls -la
+RUN apt-get update && apt-get install -y maven
 
-RUN chmod +x mvnw
-RUN ./mvnw clean package -DskipTests
+RUN mvn clean package -DskipTests
 
 EXPOSE 8089
 
